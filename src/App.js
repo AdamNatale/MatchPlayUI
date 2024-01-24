@@ -1,22 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Grid from '@mui/material/Grid';
 
 function App() {
+  const [data, setData] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
+  // <img src={logo} className="App-logo" alt="logo" />
+  // <Button variant="contained">Hello world</Button>
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{!data ? "Loading..." : data}</p>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            Adams!
+          </Grid>
+          <Grid item xs={6}>
+            Haleys!
+          </Grid>
+          <Grid item xs={6}>
+            Adams Points!
+          </Grid>
+          <Grid item xs={6}>
+            Haleys Points!
+          </Grid>
+        </Grid>
       </header>
     </div>
   );
