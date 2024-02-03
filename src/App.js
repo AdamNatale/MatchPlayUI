@@ -26,8 +26,8 @@ function populateList(teamsData, data) {
   const list = [];
   let points = 0;
   teamsData.forEach((player) => {
+    console.log(player);
     let obj = data.find(o => o.name === player);
-    console.log(obj);
     points += parseInt(obj.points);
     list.push({
       name: player,
@@ -147,6 +147,8 @@ function App() {
                 </TableBody>
               </Table>
             </TableContainer>
+          </Grid>
+          <Grid item xs={12}>
           </Grid>
         </Grid>
       </header>
