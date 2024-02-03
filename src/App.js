@@ -47,7 +47,8 @@ function App() {
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("/api")
+    const fetchData = async () => {
+      fetch("/api")
       .then((res) => res.json())
       .then((data) => {
         const adamData = populateList(teamsData.teamsData.adamTeam, data);
@@ -60,10 +61,17 @@ function App() {
 
         setData(data.message);
       });
+    };
+
+    fetchData();
+
+    const intervalId = setInterval(() => {
+      fetchData(); // Fetch data every 30 seconds
+    }, 30000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
-  // <img src={logo} className="App-logo" alt="logo" />
-  // <Button variant="contained">Hello world</Button>
   return (
     <div className="App">
       <header className="App-header">
