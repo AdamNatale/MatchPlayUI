@@ -13,6 +13,7 @@ import Paper from '@mui/material/Paper';
 
 import adamPhoto from "./assets/adam-picture.jpg";
 import haleyPhoto from "./assets/haley-picture.jpeg";
+import mapleLogo from "./assets/maple.jfif";
 
 const teamsData = require("./config");
 
@@ -66,8 +67,8 @@ function App() {
     fetchData();
 
     const intervalId = setInterval(() => {
-      fetchData(); // Fetch data every 30 seconds
-    }, 30000);
+      fetchData(); // Fetch data every 8 minutes
+    }, 480000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -149,6 +150,10 @@ function App() {
             </TableContainer>
           </Grid>
           <Grid item xs={12}>
+            <img src={mapleLogo} className="maple-container" alt="Team Adam" />
+          </Grid>
+          <Grid item xs={12}>
+            <div className="footer" />
           </Grid>
         </Grid>
       </header>
