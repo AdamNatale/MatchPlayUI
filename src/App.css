@@ -21,6 +21,7 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-top: 24px;
 }
 
 .App-link {
@@ -34,4 +35,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.photo-container {
+  width: 250px;
+  border-radius: 8px;
 }

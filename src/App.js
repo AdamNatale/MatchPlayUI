@@ -11,6 +11,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import adamPhoto from "./assets/adam-picture.jpg";
+import haleyPhoto from "./assets/haley-picture.jpeg";
+
 const teamsData = require("./config");
 
 let adamRows = [];
@@ -61,16 +64,22 @@ function App() {
       <header className="App-header">
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            Adams!
+            Team Adam
           </Grid>
           <Grid item xs={6}>
-            Haleys!
+            Team Haley
           </Grid>
           <Grid item xs={6}>
-            {adamPoints}
+            <img src={adamPhoto} className="photo-container" alt="Team Adam" />
           </Grid>
           <Grid item xs={6}>
-            {haleyPoints}
+          <img src={haleyPhoto} className="photo-container" alt="Team Haley" />
+          </Grid>
+          <Grid item xs={6}>
+            Total Points: {adamPoints}
+          </Grid>
+          <Grid item xs={6}>
+            Total Points: {haleyPoints}
           </Grid>
           <Grid item xs={6}>
             <TableContainer component={Paper}>
