@@ -38,6 +38,11 @@ function populateList(teamsData, data) {
   return { list, points };
 }
 
+function sortList(teamData) {
+  teamData.sort((a, b) => b.points - a.points);
+  return teamData;
+}
+
 function App() {
   const [data, setData] = React.useState(null);
 
@@ -92,7 +97,7 @@ function App() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {adamRows.map((row) => (
+                  {sortList(adamRows).map((row) => (
                     <TableRow
                       key={row.name}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -119,7 +124,7 @@ function App() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {haleyRows.map((row) => (
+                  {sortList(haleyRows).map((row) => (
                     <TableRow
                       key={row.name}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
