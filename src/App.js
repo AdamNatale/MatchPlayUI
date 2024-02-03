@@ -13,11 +13,27 @@ import Paper from '@mui/material/Paper';
 
 const teamsData = require("./config");
 
-const adamRows = [];
+let adamRows = [];
 let adamPoints = 0;
 
-const haleyRows = [];
+let haleyRows = [];
 let haleyPoints = 0;
+
+function populateList(teamsData, data) {
+  const list = [];
+  let points = 0;
+  teamsData.forEach((player) => {
+    let obj = data.find(o => o.name === player);
+    console.log(obj);
+    points += parseInt(obj.points);
+    list.push({
+      name: player,
+      gamesPlayed: obj.gamesPlayed,
+      points: obj.points
+    });
+  });
+  return { list, points };
+}
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -26,30 +42,14 @@ function App() {
     fetch("/api")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        console.log(teamsData);
-        teamsData.teamsData.adamTeam.forEach((player) => {
-          console.log(player);
-          let obj = data.find(o => o.name === player);
-          console.log(obj);
-          adamPoints += parseInt(obj.points);
-          adamRows.push({
-            name: player,
-            gamesPlayed: obj.gamesPlayed,
-            points: obj.points
-          });
-        });
+        const adamData = populateList(teamsData.teamsData.adamTeam, data);
+        adamRows = adamData.list;
+        adamPoints = adamData.points;
 
-        teamsData.teamsData.haleyTeam.forEach((player) => {
-          console.log(player);
-          let obj = data.find(o => o.name === player);
-          haleyPoints += parseInt(obj.points);
-          haleyRows.push({
-            name: player,
-            gamesPlayed: obj.gamesPlayed,
-            points: obj.points
-          });
-        });
+        const haleyData = populateList(teamsData.teamsData.haleyTeam, data);
+        haleyRows = haleyData.list;
+        haleyPoints = haleyData.points;
+
         setData(data.message);
       });
   }, []);
