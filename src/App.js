@@ -67,8 +67,8 @@ function App() {
     fetchData();
 
     const intervalId = setInterval(() => {
-      fetchData(); // Fetch data every 8 minutes
-    }, 480000);
+      fetchData(); // Fetch data every minute
+    }, 60000);
 
     return () => clearInterval(intervalId);
   }, []);
