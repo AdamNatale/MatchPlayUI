@@ -1,35 +1,29 @@
 const teamsData = {
     adamTeam: [
-        "Adam Natale",
         "Doug Baird",
-        "Alan Zuckerman",
-        "Chris Moxley",
-        "Dan Copeland",
-        "Gary Toste",
-        "Hunter Costigan",
-        "John Zaharatos",
-        "Justin Martins",
-        "Lance Lum",
-        "Myles Cameron",
-        "Ray Obidowski",
-        "Sandy Lum",
-        "Stephen Nott"
-    ],
-    haleyTeam: [
-        "Haley Jackson",
-        "Shane Jackson",
-        "Jason McKay",
-        "Cletus Gavin",
         "David Cowling",
         "Gary Wasslen",
-        "Jeff Teolis",
-        "Jonathan Mann",
-        "Karen Costigan",
-        "Laura Edward",
+        "Jeff Jorgensen",
+        "Jill King",
+        "Ken Alguire",
+        "Pamela Taplay",
+        "Paul Schebesch",
+        "Robert Vieira",
+        "Sean Baizana",
+        "Wayne Current"
+    ],
+    haleyTeam: [
+        "Shane Jackson",
+        "Duncan McFarlane",
+        "Elisha Thomson",
+        "Greg Langford",
+        "Jeph Stahl",
+        "Jon Martin",
+        "Myles Cameron",
+        "Paul Forest",
         "Peter Taplay",
-        "Rob Schultz",
-        "Scott Tizzard",
-        "Steve Stewart"
+        "Sandy Lum",
+        "T-Bone Forest"
     ]
 }
 

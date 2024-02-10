@@ -10,6 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Countdown from 'react-countdown';
 
 import adamPhoto from "./assets/adam-picture.jpg";
 import haleyPhoto from "./assets/haley-picture.jpeg";
@@ -46,6 +47,18 @@ function sortList(teamData) {
 
 function App() {
   const [data, setData] = React.useState(null);
+  const [k, setK] = React.useState(false);
+  const onCompleteTimeFun = () => {
+    console.log("Resetting Time");
+    setK((i) => !i);
+  };
+  const timerRenderer = ({ hours, minutes, seconds, completed }) => {
+    return (
+      <span>
+        Refreshing in: {minutes}:{seconds}
+      </span>
+    );
+  };
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -94,6 +107,16 @@ function App() {
           </Grid>
           <Grid item xs={6}>
             Total Points: {haleyPoints}
+          </Grid>
+          <Grid item xs={12}>
+            <div>
+              <Countdown
+                key={k}
+                date={Date.now() + 60000}
+                onComplete={onCompleteTimeFun}
+                renderer={timerRenderer}
+              />
+           </div>
           </Grid>
           <Grid item xs={6}>
             <TableContainer component={Paper}>
