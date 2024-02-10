@@ -24,6 +24,8 @@ let adamPoints = 0;
 let haleyRows = [];
 let haleyPoints = 0;
 
+let status = "";
+
 function populateList(teamsData, data) {
   const list = [];
   let points = 0;
@@ -65,13 +67,15 @@ function App() {
       fetch("/api")
       .then((res) => res.json())
       .then((data) => {
-        const adamData = populateList(teamsData.teamsData.adamTeam, data);
+        const adamData = populateList(teamsData.teamsData.adamTeam, data.standings);
         adamRows = adamData.list;
         adamPoints = adamData.points;
 
-        const haleyData = populateList(teamsData.teamsData.haleyTeam, data);
+        const haleyData = populateList(teamsData.teamsData.haleyTeam, data.standings);
         haleyRows = haleyData.list;
         haleyPoints = haleyData.points;
+
+        status = data.status;
 
         setData(data.message);
       });
@@ -109,6 +113,7 @@ function App() {
             Total Points: {haleyPoints}
           </Grid>
           <Grid item xs={12}>
+            { status !== "completed" ? 
             <div>
               <Countdown
                 key={k}
@@ -116,7 +121,10 @@ function App() {
                 onComplete={onCompleteTimeFun}
                 renderer={timerRenderer}
               />
-           </div>
+             </div>
+              :
+              <span> Tournament Complete! </span>
+            }
           </Grid>
           <Grid item xs={6}>
             <TableContainer component={Paper}>
