@@ -84,7 +84,9 @@ function App() {
     fetchData();
 
     const intervalId = setInterval(() => {
-      fetchData(); // Fetch data every minute
+      if (status !== "completed") {
+        fetchData(); // Fetch data every minute
+      }
     }, 60000);
 
     return () => clearInterval(intervalId);
