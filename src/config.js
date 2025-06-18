@@ -1,30 +1,29 @@
 const teamsData = {
-    adamTeam: [
-        "Doug Baird",
-        "David Cowling",
-        "Gary Wasslen",
-        "Jeff Jorgensen",
-        "Jill King",
-        "Ken Alguire",
-        "Pamela Taplay",
-        "Paul Schebesch",
-        "Robert Vieira",
-        "Sean Baizana",
-        "Wayne Current"
-    ],
-    haleyTeam: [
-        "Shane Jackson",
-        "Duncan McFarlane",
-        "Elisha Thomson",
-        "Greg Langford",
-        "Jeph Stahl",
-        "Jon Martin",
-        "Myles Cameron",
-        "Paul Forest",
-        "Peter Taplay",
-        "Sandy Lum",
-        "T-Bone Forest"
-    ]
+    adamTeam: [ 'David Cowling',
+    'Calvin Reid',
+    'Steven Machado',
+    'Barry Brdar',
+    'Brian Trenholm',
+    'Eric Hunter',
+    'Jason McKay',
+    'Joe Ciaravino',
+    'Alan Zuckerman',
+    'Maggie DeMille',
+    'Duncan McFarlane',
+    'Doug Baird',
+    'Adam Natale' ],
+    haleyTeam: [ 'Evan Irvine',
+    'Jeff Teolis',
+    'Lance Lum',
+    'Stephen Sukman',
+    'Walt Morose',
+    'Eric Machtinger',
+    'Kyle Spiteri',
+    'Justin Martins',
+    'Colin Parker ON',
+    'Caleb DeMille',
+    'Hunter Costigan',
+    'Shane Jackson' ]
 }
 
 module.exports = { teamsData };
