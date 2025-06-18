@@ -1,5 +1,7 @@
 const teamsData = {
-    adamTeam: [ 'David Cowling',
+    leftTeamName: "Team Poolside",
+    rightTeamName: "Team Beachside",
+    leftTeam: [ 'David Cowling',
     'Calvin Reid',
     'Steven Machado',
     'Barry Brdar',
@@ -12,7 +14,7 @@ const teamsData = {
     'Duncan McFarlane',
     'Doug Baird',
     'Adam Natale' ],
-    haleyTeam: [ 'Evan Irvine',
+    rightTeam: [ 'Evan Irvine',
     'Jeff Teolis',
     'Lance Lum',
     'Stephen Sukman',

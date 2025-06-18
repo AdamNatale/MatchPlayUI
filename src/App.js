@@ -12,17 +12,17 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Countdown from 'react-countdown';
 
-import adamPhoto from "./assets/adam-picture.jpg";
-import haleyPhoto from "./assets/haley-picture.jpeg";
+import leftSidePhoto from "./assets/swimming_14395440.png";
+import rightSidePhoto from "./assets/surfing_2995764.png";
 import mapleLogo from "./assets/maple.jfif";
 
 const teamsData = require("./config");
 
-let adamRows = [];
-let adamPoints = 0;
+let leftRows = [];
+let leftPoints = 0;
 
-let haleyRows = [];
-let haleyPoints = 0;
+let rightRows = [];
+let rightPoints = 0;
 
 let status = "";
 
@@ -67,13 +67,13 @@ function App() {
       fetch("/api")
       .then((res) => res.json())
       .then((data) => {
-        const adamData = populateList(teamsData.teamsData.adamTeam, data.standings);
-        adamRows = adamData.list;
-        adamPoints = adamData.points;
+        const leftData = populateList(teamsData.teamsData.leftTeam, data.standings);
+        leftRows = leftData.list;
+        leftPoints = leftData.points;
 
-        const haleyData = populateList(teamsData.teamsData.haleyTeam, data.standings);
-        haleyRows = haleyData.list;
-        haleyPoints = haleyData.points;
+        const rightData = populateList(teamsData.teamsData.rightTeam, data.standings);
+        rightRows = rightData.list;
+        rightPoints = rightData.points;
 
         status = data.status;
 
@@ -97,22 +97,22 @@ function App() {
       <header className="App-header">
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            Team Adam
+            {teamsData.teamsData.leftTeamName}
           </Grid>
           <Grid item xs={6}>
-            Team Haley
+            {teamsData.teamsData.rightTeamName}
           </Grid>
           <Grid item xs={6}>
-            <img src={adamPhoto} className="photo-container" alt="Team Adam" />
+            <img src={leftSidePhoto} className="photo-container" alt={teamsData.teamsData.leftTeamName} />
           </Grid>
           <Grid item xs={6}>
-          <img src={haleyPhoto} className="photo-container" alt="Team Haley" />
+          <img src={rightSidePhoto} className="photo-container" alt={teamsData.teamsData.rightTeamName} />
           </Grid>
           <Grid item xs={6}>
-            Total Points: {adamPoints}
+            Total Points: {leftPoints}
           </Grid>
           <Grid item xs={6}>
-            Total Points: {haleyPoints}
+            Total Points: {rightPoints}
           </Grid>
           <Grid item xs={12}>
             { status !== "completed" ? 
@@ -139,7 +139,7 @@ function App() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {sortList(adamRows).map((row) => (
+                  {sortList(leftRows).map((row) => (
                     <TableRow
                       key={row.name}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -166,7 +166,7 @@ function App() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {sortList(haleyRows).map((row) => (
+                  {sortList(rightRows).map((row) => (
                     <TableRow
                       key={row.name}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -183,7 +183,7 @@ function App() {
             </TableContainer>
           </Grid>
           <Grid item xs={12}>
-            <img src={mapleLogo} className="maple-container" alt="Team Adam" />
+            <img src={mapleLogo} className="maple-container" alt="Maple Pinball" />
           </Grid>
           <Grid item xs={12}>
             <div className="footer" />

@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #420303;
+  background-color: sandybrown;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,8 +38,9 @@
 }
 
 .photo-container {
-  width: 250px;
+  width: 25%;
   border-radius: 8px;
+  background: bisque;
 }
 
 .maple-container {
